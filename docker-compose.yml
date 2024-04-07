@@ -1,0 +1,15 @@
+version: '3'
+services:
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5434:5432
+    environment:
+      POSTGRES_USER: admin 
+      POSTGRES_PASSWORD: '<3BiGy'
+      POSTGRES_DB: nest
+    networks:
+      - BiGy 
+networks:
+  BiGy:
+
