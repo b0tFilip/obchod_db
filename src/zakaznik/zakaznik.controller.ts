@@ -6,13 +6,13 @@ import { ZakaznikService } from './zakaznik.service';
 export class ZakaznikController {
     constructor(private zakaznikService: ZakaznikService) { }
 
-    @Post('novyZakaznik')
+    @Post('vytvorZakaznika')
     novyZakznik(@Body() dto: ZakaznikDto) {
         return this.zakaznikService.novyZakaznik(dto);
     }
 
 
-    @Get('zakaznici')
+    @Get('vsichniZakaznici')
     zakaznici(){
         return this.zakaznikService.zakaznici();
     }

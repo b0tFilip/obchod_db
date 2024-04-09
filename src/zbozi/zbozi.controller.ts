@@ -10,7 +10,7 @@ export class ZboziController {
     vytvorZbozi(@Body() dto: zboziDto) {
         return this.zboziService.vytvorZbozi(dto);
     }
-    @Get('seznamZbozi')
+    @Get('vsechnoZbozi')
     seznamZbozi(){
         return this.zboziService.seznamZbozi();
 
