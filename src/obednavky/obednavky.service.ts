@@ -11,27 +11,27 @@ export class ObednavkyService {
         const pObevnky = this.prisma.obednavka;
 
         // Rozděluje string na array
-        const dtoZboziID = dto.zboziID.split(',');
+        //const dtoZboziID = dto.zboziID.split(',');
 
         // Vyhledává v DB vŠehcny entries podle dtoZboziID a dává je do jednoho listu seznamZbozi
-        let seznamZbozi: Zbozi[] = [];
-
-        for (let index = 0; index < dtoZboziID.length; index++) {
-            seznamZbozi.push(
-                //
-                // Hledá entries v DB podle IdZb které bylo předáno v DTO
-                await this.prisma.zbozi.findUnique({
-                    where: { idZb: Number(dtoZboziID[index]) },
-                }),
-            );
-        }
+        //let seznamZbozi: Zbozi[] = [];
+//
+ //       for (let index = 0; index < dtoZboziID.length; index++) {
+  //          seznamZbozi.push(
+   //             //
+    //            // Hledá entries v DB podle IdZb které bylo předáno v DTO
+     //           await this.prisma.zbozi.findUnique({
+      //              where: { idZb: Number(dtoZboziID[index]) },
+       //         }),
+        //    );
+        //}
         // Odstraňuje všechny ID protože rozbíjí create
-        seznamZbozi.map((x) => delete x.idZb);
+        //seznamZbozi.map((x) => delete x.idZb);
 
         // vytváří novou obědnávku
         return await pObevnky.create({
             data: {
-                zbozi: { create: seznamZbozi },
+                idZbozi: Number(dto.zboziID),
                 zakaznikId: Number(dto.zakaznikID),
                 idDopravce: Number(dto.dopravceID),
             },

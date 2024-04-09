@@ -30,7 +30,8 @@ model Obednavka {
     createdAt DateTime @default(now())
     updateAt  DateTime @updatedAt
 
-    zbozi Zbozi[]
+    idZbozi Int
+    zbozi Zbozi @relation(fields: [idZbozi], references: [idZb])
 
     idDopravce Int
     dopravce   Dopravce @relation(fields: [idDopravce], references: [idD])

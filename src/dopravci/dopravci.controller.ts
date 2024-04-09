@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Post, Get} from '@nestjs/common';
 import { DopravceDto } from './dto';
 import { DopravciService } from './dopravci.service';
 
@@ -6,8 +6,15 @@ import { DopravciService } from './dopravci.service';
 export class DopravciController {
     constructor(private dopravciService: DopravciService) { }
 
-    @Post()
+    @Post('vytvorDopravce')
     vytvorDopravce(@Body() dto: DopravceDto) {
         return this.dopravciService.vytvorDopravce(dto);
     }
+
+
+    //@Get('vsichniDopravci')
+    //vsichniDopravci(){
+    //   ret 
+    //
+    //}
 }
