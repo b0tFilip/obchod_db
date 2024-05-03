@@ -11,7 +11,7 @@ export class ObednavkyController {
         return this.obednavyService.pridatObednavku(dto);
     }
 
-    @Get('vsechnyObednavky')
+    @Get('Obednavky')
     vsechnyObednavky() {
         return this.obednavyService.vsechnyObednavky();
     }

@@ -1,6 +1,7 @@
-import { Body, Controller, Post, Get} from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { DopravceDto } from './dto';
 import { DopravciService } from './dopravci.service';
+import { ObednavkyDopravce } from './dto/obednavkyDopravce.dto';
 
 @Controller('dopravci')
 export class DopravciController {
@@ -11,10 +12,13 @@ export class DopravciController {
         return this.dopravciService.vytvorDopravce(dto);
     }
 
+    @Get('Dopravci')
+    vsichniDopravci() {
+        return this.dopravciService.vsichniDopravci();
+    }
 
-    //@Get('vsichniDopravci')
-    //vsichniDopravci(){
-    //   ret 
-    //
-    //}
+    @Get('ObednavkyDopravce')
+    obednavyDopravce(@Body() dto: ObednavkyDopravce) {
+        return this.dopravciService.obednavkyDopravce(dto);
+    }
 }

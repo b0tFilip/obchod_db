@@ -1,8 +1,8 @@
-import { Body, Controller, Post, Get} from '@nestjs/common';
+import { Body, Controller, Post, Get } from '@nestjs/common';
 import { ZakaznikDto } from './dto';
 import { ZakaznikService } from './zakaznik.service';
 
-@Controller('zakaznik')
+@Controller('zakaznici')
 export class ZakaznikController {
     constructor(private zakaznikService: ZakaznikService) { }
 
@@ -11,9 +11,8 @@ export class ZakaznikController {
         return this.zakaznikService.novyZakaznik(dto);
     }
 
-
-    @Get('vsichniZakaznici')
-    zakaznici(){
+    @Get('Zakaznici')
+    zakaznici() {
         return this.zakaznikService.zakaznici();
     }
 }
